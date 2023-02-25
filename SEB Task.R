@@ -381,25 +381,9 @@ library(rcompanion)
 nagelkerke(model)
 ```
 
-The model also had a higher Pseudo R² values compared with other models (these models are not included here, but some of examples are visible in the "raw" file).
+The model also had a higher Pseudo R² values compared with other models (these models are not included here).
 \
 From fitting the model it was noticed that dropping `duration`, `balance`, `housing` variables reduces the goodness of fit of the model quite significantly.
-
-```{r good2, include=FALSE}
-
-model1<-glm(as.factor(y)~duration+balance+age+education+campaign, data = training_set, family = binomial)# AIC = 17901, Dev. = 17885
-model2<-glm(as.factor(y)~duration+balance+education+housing+campaign, data = training_set, family = binomial)# AIC = 17211, Dev. = 17195
-model3<-glm(as.factor(y)~duration+balance+education+housing+poutcome, data = training_set, family = binomial)# AIC = 15709, Dev. = 15689
-
-summary(model1)
-summary(model2)
-summary(model3)
-
-nagelkerke(model1)# 0.175549, 0.118694, 0.231317
-nagelkerke(model2)# 0.20734, 0.13863, 0.27017
-nagelkerke(model3)# 0.276782, 0.180624, 0.352009
-
-```
 
 
 ```{r lib5, include=FALSE}
